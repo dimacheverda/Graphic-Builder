@@ -48,13 +48,9 @@ public class MainForm extends JFrame
         public void stateChanged(ChangeEvent e)
         {
             JSlider source = (JSlider)e.getSource();
-//            if (!source.getValueIsAdjusting()) {
-                double _zoom = source.getValue();
-                graphicPanel.setZOOM(_zoom);
-                graphicPanel.repaint();
-
-//                System.out.println(_zoom);
-//            }
+            double _zoom = source.getValue();
+            graphicPanel.setZOOM(_zoom);
+            graphicPanel.repaint();
         }
     }
 
@@ -76,8 +72,28 @@ public class MainForm extends JFrame
             zoomSlider.setPaintLabels(true);
             SliderListener sliderListener = new SliderListener();
             zoomSlider.addChangeListener(sliderListener);
-
             add(zoomSlider);
+        }
+    }
+
+    private class TopPanel extends JPanel
+    {
+        public JTextField functionInputField;
+        public JButton buildButton;
+
+        public void setupPanel()
+        {
+            setLayout(new FlowLayout());
+
+            JLabel text = new JLabel("y=");
+            add(text);
+
+            functionInputField = new JTextField(25);
+            add(functionInputField);
+
+            buildButton = new JButton();
+            buildButton.setText("Build");
+            add(buildButton);
         }
     }
 }

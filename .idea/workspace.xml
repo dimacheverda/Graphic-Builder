@@ -5,12 +5,12 @@
     <ignored path="LR 8.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Main.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386188263249" ignored="false" />
-    <file path="/MainForm.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386344820055" ignored="false" />
+    <file path="/MainForm.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386360443125" ignored="false" />
     <file path="/CanvasPanel.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386283483927" ignored="false" />
     <file path="/TopPanel.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386193160267" ignored="false" />
     <file path="/LeftPanel.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386192629940" ignored="false" />
     <file path="/BottomPanel.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386288562507" ignored="false" />
-    <file path="/Brain.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386345944144" ignored="false" />
+    <file path="/Brain.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386360322335" ignored="false" />
     <file path="/GraphicPanel.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386339644334" ignored="false" />
     <file path="/Canvas.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386344597379" ignored="false" />
     <file path="$PROJECT_DIR$/../LR 7 calc/src/MainFrame.java" changelist="dccebeb6-bbe9-47a2-bedc-bbb448a1f3ae" time="1386284063798" ignored="false" />
@@ -84,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="28" selection-start="2124" selection-end="2124" vertical-scroll-proportion="0.0">
+            <state line="88" column="22" selection-start="2799" selection-end="2799" vertical-scroll-proportion="1.8409091">
               <folding />
             </state>
           </provider>
@@ -102,22 +102,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Canvas.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Canvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="76" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.5681818">
+            <state line="14" column="29" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopPanel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TopPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="148" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,8 +125,10 @@
       <file leaf-file-name="Brain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Brain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="36" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="7" column="18" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,9 +149,9 @@
         <option value="$PROJECT_DIR$/src/CanvasPanel.java" />
         <option value="$PROJECT_DIR$/src/BottomPanel.java" />
         <option value="$PROJECT_DIR$/src/GraphicPanel.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.java" />
-        <option value="$PROJECT_DIR$/src/Brain.java" />
         <option value="$PROJECT_DIR$/src/Canvas.java" />
+        <option value="$PROJECT_DIR$/src/Brain.java" />
+        <option value="$PROJECT_DIR$/src/MainForm.java" />
       </list>
     </option>
   </component>
@@ -387,13 +380,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TopPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LeftPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
@@ -404,7 +390,9 @@
     <entry file="file://$PROJECT_DIR$/src/Brain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="80" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -436,20 +424,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.4114583" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LeftPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TopPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="148" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="5" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
@@ -457,17 +431,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+    <entry file="file://$PROJECT_DIR$/src/Brain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="28" selection-start="2124" selection-end="2124" vertical-scroll-proportion="0.0">
+        <state line="7" column="18" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LeftPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Brain.java">
+    <entry file="file://$PROJECT_DIR$/src/Canvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="14" column="29" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -478,12 +463,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Canvas.java">
+    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="76" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.5681818">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="88" column="22" selection-start="2799" selection-end="2799" vertical-scroll-proportion="1.8409091">
+          <folding />
         </state>
       </provider>
     </entry>
