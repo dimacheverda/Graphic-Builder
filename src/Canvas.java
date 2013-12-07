@@ -23,20 +23,21 @@ public class Canvas
         Graphics2D g2d = (Graphics2D)graphics;
 
         int markWidth = 3;
+        int maximumMarkDistance = 80;
+        int minimumMarkDistance = 40;
+
         spaceBetweenMarks = (int)ZOOM;
-        if (ZOOM <= 40) {
-            while (spaceBetweenMarks < 40) {
+
+        if (ZOOM <= minimumMarkDistance) {
+            while (spaceBetweenMarks < minimumMarkDistance) {
                 spaceBetweenMarks *= 2;
             }
         }
-        if (ZOOM >= 80) {
-            while (spaceBetweenMarks > 80) {
+        if (ZOOM >= maximumMarkDistance) {
+            while (spaceBetweenMarks > maximumMarkDistance) {
                 spaceBetweenMarks /= 2;
             }
         }
-
-        System.out.printf("ZOOM       =        %f\n", ZOOM);
-        System.out.printf("spaceBetweenMarks = %f\n", spaceBetweenMarks);
 
         // Marks for OX
         for (int i = 1; i < width/2/spaceBetweenMarks; i++)

@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainForm extends JFrame
 {
@@ -9,8 +11,6 @@ public class MainForm extends JFrame
     public TopPanel topPanel;
     public LeftPanel leftPanel;
     public BottomPanel bottomPanel;
-
-    private int ZOOM_INIT = 4;
 
     public void setupUI()
     {
@@ -25,16 +25,17 @@ public class MainForm extends JFrame
         add(graphicPanel, BorderLayout.CENTER);
 
         topPanel = new TopPanel();
-        topPanel.setupPanel();
+        topPanel.setupTopPanel();
         topPanel.setBackground(Color.RED);
         add(topPanel, BorderLayout.NORTH);
 
         bottomPanel = new BottomPanel();
-        bottomPanel.setupBotttomPanel();
+        bottomPanel.setupBottomPanel();
         bottomPanel.setBackground(Color.YELLOW);
         add(bottomPanel, BorderLayout.SOUTH);
 
         leftPanel = new LeftPanel();
+        leftPanel.setupLeftPanel();
         leftPanel.setBackground(Color.GREEN);
         add(leftPanel, BorderLayout.WEST);
 
@@ -42,29 +43,18 @@ public class MainForm extends JFrame
         setLayout(new BorderLayout());
     }
 
-    private class SliderListener implements ChangeListener
-    {
-        @Override
-        public void stateChanged(ChangeEvent e)
-        {
-            JSlider source = (JSlider)e.getSource();
-            double _zoom = source.getValue();
-            graphicPanel.setZOOM(_zoom);
-            graphicPanel.repaint();
-        }
-    }
+
 
     private class BottomPanel extends JPanel
     {
         public JSlider zoomSlider;
 
-        public void setupBotttomPanel()
+        public void setupBottomPanel()
         {
             int FPS_MIN = 10;
             int FPS_MAX = 400;
             int FPS_INIT = 40;
-            JSlider zoomSlider = new JSlider(JSlider.HORIZONTAL, FPS_MIN, FPS_MAX, FPS_INIT);
-
+            zoomSlider = new JSlider(JSlider.HORIZONTAL, FPS_MIN, FPS_MAX, FPS_INIT);
             zoomSlider.setPreferredSize(new Dimension(600, 40));
             zoomSlider.setMajorTickSpacing(40);
             zoomSlider.setMinorTickSpacing(10);
@@ -74,14 +64,34 @@ public class MainForm extends JFrame
             zoomSlider.addChangeListener(sliderListener);
             add(zoomSlider);
         }
+
+        private class SliderListener implements ChangeListener
+        {
+            @Override
+            public void stateChanged(ChangeEvent e)
+            {
+                JSlider source = (JSlider)e.getSource();
+                if (graphicPanel.isToUseEquation()) {
+                    if (!source.getValueIsAdjusting()) {
+                        double _zoom = source.getValue();
+                        graphicPanel.setZOOM(_zoom);
+                        graphicPanel.repaint();
+                    }
+                } else {
+                    double _zoom = source.getValue();
+                    graphicPanel.setZOOM(_zoom);
+                    graphicPanel.repaint();
+                }
+            }
+        }
     }
 
-    private class TopPanel extends JPanel
+    private class TopPanel extends JPanel implements ActionListener
     {
         public JTextField functionInputField;
         public JButton buildButton;
 
-        public void setupPanel()
+        public void setupTopPanel()
         {
             setLayout(new FlowLayout());
 
@@ -93,7 +103,47 @@ public class MainForm extends JFrame
 
             buildButton = new JButton();
             buildButton.setText("Build");
+            buildButton.addActionListener(this);
             add(buildButton);
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            if (!topPanel.functionInputField.getText().equals("")) {
+                graphicPanel.setEquation(topPanel.functionInputField.getText());
+//                System.out.println(topPanel.functionInputField.getText());
+                graphicPanel.setToUseEquation(true);
+                graphicPanel.repaint();
+
+            }
+        }
+    }
+
+    private class LeftPanel extends JPanel implements ActionListener
+    {
+        public void setupLeftPanel()
+        {
+            setPreferredSize(new Dimension(80, 100));
+            setSize(80, 400);
+//            setLayout(new GridLayout(0,1));
+            setLayout(new FlowLayout());
+
+            String[] buttonTitles = {"sin", "cos", "tg", "ctg"};
+            for (int i = 0; i < buttonTitles.length; i++) {
+                JButton button = new JButton(buttonTitles[i]);
+                button.addActionListener(this);
+                this.add(button);
+            }
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            JButton sender = (JButton)e.getSource();
+            graphicPanel.setSimpleGraphic(sender.getText());
+            graphicPanel.setToUseEquation(false);
+            graphicPanel.repaint();
         }
     }
 }
