@@ -1,4 +1,5 @@
 out/
+
 .idea/workspace.xml
 
 out/production/LR 8/Brain.class
@@ -16,3 +17,5 @@ out/production/LR 8/MainForm$TopPanel.class
 out/production/LR 8/MainForm.class
 
 out/production/LR 8/MainForm.class
+
+out/production/LR 8/Main.class
