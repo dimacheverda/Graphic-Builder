@@ -11,13 +11,6 @@ public class Brain
     static double getYForX(double x, String func)
     {
         double result = 0;
-//        Double result = (x*x+Math.sqrt(x+3))/20;
-//        double result = Math.tan(x);
-//        double result = Math.atan(x);
-//        double result = Math.cos(x);
-//        double result = Math.sin(x);
-//        double result = Math.log(x);
-//        double result = Math.log10(x);
         switch (func) {
             case "sin" : result = Math.sin(x); break;
             case "cos" : result = Math.cos(x); break;
@@ -27,7 +20,7 @@ public class Brain
         return result;
     }
 
-    static double getYFromXForEquatation(double x, String equation)
+    static double getYFromXForEquation(double x, String equation) throws ScriptException
     {
         ScriptEngineManager mgr = new ScriptEngineManager();
         ScriptEngine engine = mgr.getEngineByName("JavaScript");
@@ -35,23 +28,17 @@ public class Brain
         equation = equation.replace("sin", "Math.sin").
                 replace("cos", "Math.cos").
                 replace("tan", "Math.tan").
-                replace("sqrt", "Math.sqrt").
+//                replace("sqrt", "Math.sqrt").
                 replace("sqr", "Math.pow").
+                replace("abs", "Math.abs").
+                replace("e", "Math.E").
                 replace("x", String.valueOf(x)).
                 replace("log", "Math.log");
 
         double result = 0;
 
         if (!equation.isEmpty()) {
-            try {
                 result = (double)engine.eval(equation);
-            } catch (ScriptException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-
-            }
         }
 
         return result;

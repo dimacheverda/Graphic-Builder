@@ -42,41 +42,57 @@ public class Canvas
         // Marks for OX
         for (int i = 1; i < width/2/spaceBetweenMarks; i++)
         {
+            int x = i*(int)spaceBetweenMarks;
+
+            // DRAW GRID
+            graphics.setColor(Color.LIGHT_GRAY);
+            g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+            g2d.drawLine(x,height/2,x,-height/2);
+            g2d.drawLine(-x,height/2,-x,-height/2);
+
+            // MARKS nad NUMBERS
+            graphics.setColor(Color.GRAY);
+            g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+
             // numbers
             double number = i/ZOOM*spaceBetweenMarks;
             number = number*100.0/100.0;
             String mark1 = String.format("%2.2f ",number);
-            g2d.drawString(mark1, i*(int)spaceBetweenMarks, 0-markWidth-5);
-
-            // line
-            g2d.drawLine(i*(int)spaceBetweenMarks, 0+markWidth,i*(int)spaceBetweenMarks ,0-markWidth);
-
-            // numbers
+            g2d.drawString(mark1, x, 0-markWidth-5);
             String mark2 = String.format("%2.2f ",-number);
-            g2d.drawString(mark2, -i * (int)spaceBetweenMarks, 0 - markWidth - 5);
+            g2d.drawString(mark2, -x, 0 - markWidth - 5);
 
             // line
-            g2d.drawLine(-i*(int)spaceBetweenMarks, 0+markWidth,-i*(int)spaceBetweenMarks ,0-markWidth);
+            g2d.drawLine(x, 0+markWidth,x ,0-markWidth);
+            g2d.drawLine(-x, 0+markWidth,-x ,0-markWidth);
         }
 
         // Marks for OY
         for (int i = 1; i < height/2/spaceBetweenMarks; i++)
         {
+            int y = i*(int)spaceBetweenMarks;
+
+            // DRAW GRID
+            graphics.setColor(Color.LIGHT_GRAY);
+            g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+            g2d.drawLine(width/2,y,-width/2,y);
+            g2d.drawLine(width/2,-y,-width/2,-y);
+
+            // MARKS nad NUMBERS
+            graphics.setColor(Color.GRAY);
+            g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+
             // numbers
             double number = i/ZOOM*spaceBetweenMarks;
             number = number*100.0/100.0;
             String mark1 = String.format("%2.2f ",number);
-            g2d.drawString(mark1,0-markWidth+10, i*(int)spaceBetweenMarks);
-
-            // line
-            g2d.drawLine(0+markWidth, i*(int)spaceBetweenMarks,0-markWidth ,i*(int)spaceBetweenMarks);
-
-            // numbers
+            g2d.drawString(mark1, 0-markWidth+10, y);
             String mark2 = String.format("%2.2f ",-number);
-            g2d.drawString(mark2, 0 - markWidth + 10, -i * (int)spaceBetweenMarks);
+            g2d.drawString(mark2, 0- markWidth+10, -y);
 
             // line
-            g2d.drawLine(0+markWidth, -i*(int)spaceBetweenMarks,0-markWidth ,-i*(int)spaceBetweenMarks);
+            g2d.drawLine(0+markWidth, y,0-markWidth ,y);
+            g2d.drawLine(0+markWidth, -y,0-markWidth ,-y);
         }
     }
 }
