@@ -2,6 +2,8 @@ out/
 
 .idea/workspace.xml
 
+.idea/
+
 out/production/LR 8/Brain.class
 
 *.class

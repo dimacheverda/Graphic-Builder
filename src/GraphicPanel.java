@@ -9,14 +9,16 @@ public class GraphicPanel extends JPanel
     private String simpleGraphic = "";
     private boolean toUseEquation = false;
     private double ZOOM = 20.0;
-//    private JLabel activityInfoLabel;
+    private int translationX = 0;
+    private int translationY = 0;
+
     Graphics2D g2d;
 
     public GraphicPanel()
     {
         canvas = new Canvas();
         setLayout(new FlowLayout());
-//        activityInfoLabel = new JLabel();
+        ZOOM = 20.0;
     }
 
     @Override
@@ -29,19 +31,21 @@ public class GraphicPanel extends JPanel
 //        add(activityInfoLabel);
 
         g2d = (Graphics2D)graphics;
-        graphics.translate(getWidth() / 2, getHeight() / 2);
+        graphics.translate(getWidth() / 2 + translationX, getHeight() / 2 + translationY);
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        canvas.setupCanvas(graphics, getWidth(), getHeight());
+        canvas.setTransX(translationX);
+        canvas.setTransY(translationY);
         canvas.drawMarksWithZoom(graphics,ZOOM,getWidth(),getHeight());
+        canvas.setupCanvas(graphics, getWidth(), getHeight());
 
         int lineWidth = 2;
 
         int ANTIALIASING_COEFFICIENT = 2;
 
         if (!toUseEquation && !simpleGraphic.equals("")) {
-            for (int i = -getWidth()/2 * ANTIALIASING_COEFFICIENT; i < getWidth()/2 * ANTIALIASING_COEFFICIENT; i++) {
+            for (int i = (-getWidth()/2 - translationX) * ANTIALIASING_COEFFICIENT; i < (getWidth()/2 - translationX) * ANTIALIASING_COEFFICIENT; i++) {
                 double x1, y1, x2, y2;
 
                 graphics.setColor(Color.MAGENTA);
@@ -115,7 +119,7 @@ public class GraphicPanel extends JPanel
                 g2d.setStroke(new BasicStroke(lineWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
                 double x1, y1, x2, y2;
 
-                for (int i = -getWidth()/2; i < getWidth()/2; i++) {
+                for (int i = -getWidth()/2 - translationX; i < getWidth()/2 - translationX; i++) {
                     try {
                         x1 = i / ZOOM;
                         x2 = (i+1) / ZOOM;
@@ -142,10 +146,15 @@ public class GraphicPanel extends JPanel
         return equation;
     }
 
-    public void setZOOM(Double ZOOM) {
+    public void setZOOM(double ZOOM) {
         if (ZOOM >= 1.0) {
             this.ZOOM = ZOOM;
         } else this.ZOOM = 1.0;
+        this.repaint();
+    }
+
+    public double getZOOM() {
+        return ZOOM;
     }
 
     public void setToUseEquation(boolean toUseEquation) {
@@ -164,4 +173,21 @@ public class GraphicPanel extends JPanel
 
         return simpleGraphic;
     }
+
+    public int getTranslationX() {
+        return translationX;
+    }
+
+    public void setTranslationX(int translationX) {
+        this.translationX = translationX;
+    }
+
+    public int getTranslationY() {
+        return translationY;
+    }
+
+    public void setTranslationY(int translationY) {
+        this.translationY = translationY;
+    }
+
 }
